@@ -9,7 +9,7 @@ let pets = [
             raca: 'Doberman',
             peso: 30,
             tutor: 'Luiz',
-            vacinado: true,
+            vacinado: false,
             servicos: ['banho', 'tosa']
 
         },
@@ -20,7 +20,7 @@ let pets = [
             raca: 'Pastor Belga',
             peso: 25,
             tutor: 'Marcos',
-            vacinado: true,
+            vacinado: false,
             servicos: ['banho']
     
         },
@@ -31,7 +31,7 @@ let pets = [
             raca: 'Pastor Belga',
             peso: 30,
             tutor: 'Joaquim',
-            vacinado: true,
+            vacinado: false,
             servicos: ['banho', 'corte de unha']
            
         },
@@ -43,7 +43,7 @@ let pets = [
             raca: 'Miniatura Pinscher, 50% ódio, 50% tremedeira',
             peso: 65,
             tutor: 'João',
-            vacinado: true,
+            vacinado: false,
             servicos: ['banho', 'corte de unha','depilação']
     
         }
@@ -75,7 +75,18 @@ const vacinarPet = (pet) => {
 
 vacinarPet(pets[3]);
 
+const campanhaVacina = (nomePetshop) => { 
+    var vacinadoCampanha = 0;
+    for(let pet of pets){
+        if (!pet.vacinado)  vacinadoCampanha++;
+        vacinarPet(pet);
+        
+        }
+        console.log(`Pets vacinados na campanha: ${vacinadoCampanha}`);
+    } 
 
+
+campanhaVacina(pets);
 
 
 
