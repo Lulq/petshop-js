@@ -61,7 +61,19 @@ const listarPets = () => {
     }
 }
 
-listarPets()
+//listarPets();
+
+const vacinarPet = (pet) => {
+    if (!pet.vacinado){
+        pet.vacinado = true;
+        console.log(`${pet.nome} foi vacinado`)
+    } else {
+        console.log(`${pet.nome} já estava vacinado`)
+    }
+
+}
+
+vacinarPet(pets[3]);
 
 
 
