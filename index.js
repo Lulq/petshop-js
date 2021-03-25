@@ -73,20 +73,34 @@ const vacinarPet = (pet) => {
 //vacinarPet(pets[3]);
 
 const campanhaVacina = () => { 
-    //percorre a lista de objetos, se o pet não tiver vacinado, vacina-o e adiciona a contagem de vacinados da campanha.
+    //cria uma lista através de um filtro, apenas com os que não estão vacinados, a percorre e vacina quem não estiver
 
-    var vacinadoCampanha = 0;
-    for(let pet of pets){
-        if (!pet.vacinado)  vacinadoCampanha++;
-        
+    petsVacinados = pets.filter(pets => pets.vacinado === false);
+    for(let pet of pets)
         vacinarPet(pet);
-        
-        }
-        console.log(`Pets vacinados nesta campanha campanha: ${vacinadoCampanha}`);
+        console.log(`Pets vacinados nesta campanha campanha: ${petsVacinados.length}`);
     } 
 
 
 campanhaVacina(pets);
 
 
+const insereCliente = (nome, tipo, idade, raca, peso, tutor, vacinado, servicos) => {
+    novoPet = {
+        nome: nome,
+        tipo: tipo,
+        idade: idade,
+        raca: raca,
+        peso: peso,
+        tutor: tutor,
+        vacinado: vacinado,
+        servicos: servicos
+    }
+
+    pets.push(novoPet);
+}
+
+insereCliente("Diego","Divindade",33,"Cristo",555,"Deus", true, [])
+
+console.log(pets)
 
