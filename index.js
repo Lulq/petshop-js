@@ -32,7 +32,7 @@ let pets = [
             peso: 30,
             tutor: 'Joaquim',
             vacinado: false,
-            servicos: ['banho', 'corte de unha']
+            servicos: ['banho', 'aparar unhas']
            
         },
 
@@ -44,7 +44,7 @@ let pets = [
             peso: 65,
             tutor: 'João',
             vacinado: false,
-            servicos: ['banho', 'corte de unha','depilação']
+            servicos: []
     
         }
 ];
@@ -98,9 +98,44 @@ const insereCliente = (nome, tipo, idade, raca, peso, tutor, vacinado, servicos)
     }
 
     pets.push(novoPet);
+    console.log(`${novoPet.nome} inserido com sucesso.`)
 }
 
 insereCliente("Diego","Divindade",33,"Cristo",555,"Deus", true, [])
 
-console.log(pets)
+const dataAgora = () => {
+    var moment = require("moment");
+    let dataDoServico = moment().format("MM-DD-YYYY")
+    return dataDoServico
+}
+
+
+const darBanhoPet = (pet) => {
+    
+    pet.servicos.push(`banho em ${dataAgora()}`)
+    console.log(`${pet.nome} tomou banho no dia ${dataAgora()}!`);
+    
+}
+
+const tosarPet = (pet) => {
+        
+    pet.servicos.push(`tosa em ${dataAgora()}`)
+    console.log(`${pet.nome} foi tosado no dia ${dataAgora()}!`);
+    
+}
+
+const apararUnhasPet = (pet) => {
+    
+    pet.servicos.push(`aparar unhas em ${dataAgora()}`)
+    console.log(`${pet.nome} teve suas unhas aparadas em ${dataAgora()}!`);
+    
+}
+
+darBanhoPet(pets[3]);
+
+tosarPet(pets[3]);
+
+apararUnhasPet(pets[3]);
+
+console.log(pets);
 
