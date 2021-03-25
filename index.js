@@ -73,9 +73,9 @@ const vacinarPet = (pet) => {
 
 }
 
-vacinarPet(pets[3]);
+//vacinarPet(pets[3]);
 
-const campanhaVacina = (nomePetshop) => { 
+const campanhaVacina = () => { 
     var vacinadoCampanha = 0;
     for(let pet of pets){
         if (!pet.vacinado)  vacinadoCampanha++;
