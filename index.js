@@ -17,7 +17,7 @@ let pets = [
             nome: 'Saori',
             tipo: 'cachorro',
             idade: 3,
-            raca: 'Pastor',
+            raca: 'Pastor Belga',
             peso: 25,
             tutor: 'Marcos',
             vacinado: true,
@@ -28,23 +28,41 @@ let pets = [
             nome: 'Iron',
             tipo: 'cachorro',
             idade: 5,
-            raca: 'Pastor',
+            raca: 'Pastor Belga',
             peso: 30,
             tutor: 'Joaquim',
             vacinado: true,
             servicos: ['banho', 'corte de unha']
+           
+        },
+
+        {
+            nome: 'Herbert',
+            tipo: 'cachorro',
+            idade: 28,
+            raca: 'Miniatura Pinscher, 50% ódio, 50% tremedeira',
+            peso: 65,
+            tutor: 'João',
+            vacinado: true,
+            servicos: ['banho', 'corte de unha','depilação']
     
         }
 ];
 
 const listarPets = () => {
-    for(let i = 0; i <pets.length; i++){
-        console.log(pets[i].nome);
+    // for(let i = 0; i <pets.length; i++){
+    //     // console.log(pets[i].nome + " " + pets[i].raca);
+    //     console.log(`O nome do pet é ${pets[i].nome} e a raça é ${pets[i].raca}`)
+      
+    // }
+
+    for(let pet of pets){
+        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}`);
     }
 }
 
 listarPets()
-// console.log(pet);
+
 
 
 
