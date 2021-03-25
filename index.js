@@ -50,25 +50,22 @@ let pets = [
 ];
 
 const listarPets = () => {
-    // for(let i = 0; i <pets.length; i++){
-    //     // console.log(pets[i].nome + " " + pets[i].raca);
-    //     console.log(`O nome do pet é ${pets[i].nome} e a raça é ${pets[i].raca}`)
-      
-    // }
-
+    // lista todos os pets com seus nomes, idades, tipos e raças.
+   
     for(let pet of pets){
-        console.log(`${pet.nome}, ${pet.idade}, ${pet.tipo}, ${pet.raca}`);
+        console.log(`O pet ${pet.nome}, tem ${pet.idade} anos, é um ${pet.tipo} da raça ${pet.raca}`);
     }
 }
 
 //listarPets();
 
 const vacinarPet = (pet) => {
+    // checa se um pet já se encontra vacinado e em caso negativo o vacina.
     if (!pet.vacinado){
         pet.vacinado = true;
-        console.log(`${pet.nome} foi vacinado`)
+        console.log(`${pet.nome} foi vacinado agora.`)
     } else {
-        console.log(`${pet.nome} já estava vacinado`)
+        console.log(`${pet.nome} já estava vacinado.`)
     }
 
 }
@@ -76,13 +73,16 @@ const vacinarPet = (pet) => {
 //vacinarPet(pets[3]);
 
 const campanhaVacina = () => { 
+    //percorre a lista de objetos, se o pet não tiver vacinado, vacina-o e adiciona a contagem de vacinados da campanha.
+
     var vacinadoCampanha = 0;
     for(let pet of pets){
         if (!pet.vacinado)  vacinadoCampanha++;
+        
         vacinarPet(pet);
         
         }
-        console.log(`Pets vacinados na campanha: ${vacinadoCampanha}`);
+        console.log(`Pets vacinados nesta campanha campanha: ${vacinadoCampanha}`);
     } 
 
 
