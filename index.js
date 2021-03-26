@@ -1,56 +1,11 @@
 
 const nomePetshop = "PETSHOP AVANADE";
 
-let pets = [
-        {
-            nome: 'Siegfried',
-            tipo: 'cachorro',
-            idade: 7,
-            raca: 'Doberman',
-            peso: 30,
-            tutor: 'Luiz',
-            vacinado: false,
-            servicos: ['banho', 'tosa']
-
-        },
-        {
-            nome: 'Saori',
-            tipo: 'cachorro',
-            idade: 3,
-            raca: 'Pastor Belga',
-            peso: 25,
-            tutor: 'Marcos',
-            vacinado: false,
-            servicos: ['banho']
-    
-        },
-        {
-            nome: 'Iron',
-            tipo: 'cachorro',
-            idade: 5,
-            raca: 'Pastor Belga',
-            peso: 30,
-            tutor: 'Joaquim',
-            vacinado: false,
-            servicos: ['banho', 'aparar unhas']
-           
-        },
-
-        {
-            nome: 'Herbert',
-            tipo: 'cachorro',
-            idade: 28,
-            raca: 'Miniatura Pinscher, 50% ódio, 50% tremedeira',
-            peso: 65,
-            tutor: 'João',
-            vacinado: false,
-            servicos: []
-    
-        }
-];
+var pets = require("./db-pets.json")
+      
 
 const listarPets = () => {
-    // lista todos os pets com seus nomes, idades, tipos e raças.
+    // lista todos os pets com seus nomes, idades, tipos e raças. template string
    
     for(let pet of pets){
         console.log(`O pet ${pet.nome}, tem ${pet.idade} anos, é um ${pet.tipo} da raça ${pet.raca}`);
@@ -59,11 +14,11 @@ const listarPets = () => {
 
 //listarPets();
 
-const vacinarPet = (pet) => {
+const vacinarPet = pet => {
     // checa se um pet já se encontra vacinado e em caso negativo o vacina.
     if (!pet.vacinado){
         pet.vacinado = true;
-        console.log(`${pet.nome} foi vacinado agora.`)
+        console.log(`${pet.nome} foi vacinado com sucesso!`)
     } else {
         console.log(`${pet.nome} já estava vacinado.`)
     }
@@ -74,10 +29,15 @@ const vacinarPet = (pet) => {
 
 const campanhaVacina = () => { 
     //cria uma lista através de um filtro, apenas com os que não estão vacinados, a percorre e vacina quem não estiver
+    console.log('Campanha de vacina 2020')
+    console.log('vacinando...')
 
     petsVacinados = pets.filter(pets => pets.vacinado === false);
-    for(let pet of pets)
+    
+    for(let pet of pets){
         vacinarPet(pet);
+       
+        }
         console.log(`Pets vacinados nesta campanha campanha: ${petsVacinados.length}`);
     } 
 
@@ -137,5 +97,5 @@ tosarPet(pets[3]);
 
 apararUnhasPet(pets[3]);
 
-console.log(pets);
+//console.log(pets);
 
