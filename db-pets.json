@@ -8,7 +8,7 @@
       "peso": 30,
       "tutor": "Luiz",
       "vacinado": true,
-      "servicos": [        
+      "servicos": [
         {
           "servico": "banho",
           "data": "03/29/2021 - 11:46:40 AM"
@@ -77,6 +77,16 @@
       "raca": "chihuaha",
       "peso": 2,
       "tutor": "Nereu",
+      "vacinado": false,
+      "servicos": []
+    },
+    {
+      "nome": "Saturno",
+      "tipo": "unicórnio",
+      "idade": 12,
+      "raca": "farolês",
+      "peso": 600,
+      "tutor": "Luiz",
       "vacinado": false,
       "servicos": []
     }

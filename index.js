@@ -28,7 +28,7 @@ const listarPets = () => {
     }
 }
 
-listarPets();
+// listarPets();
 
 const vacinarPet = pet => {
     // checa se um pet já se encontra vacinado e em caso negativo o vacina.
@@ -55,7 +55,20 @@ const campanhaVacina = () => {
         console.log(`Pets vacinados nesta campanha campanha: ${petsVacinados.length}`);
     } 
 
-const adicionarPet = novoPet =>{
+const adicionarPet = (nome, tipo, idade, raca, peso, tutor, vacinado, servicos) =>{
+
+        novoPet = {
+            nome: nome,
+            tipo: tipo,
+            idade: idade,
+            raca: raca,
+            peso: peso,
+            tutor: tutor,
+            vacinado: vacinado,
+            servicos: servicos
+        }
+
+
     bd.pets.push(novoPet);
     atualizarBanco();
     console.log(`${novoPet.nome} foi adicionado com sucesso!`)
@@ -101,7 +114,8 @@ const atenderCliente = (pet, servico) => {
     console.log(`Até logo, ${pet.nome}!`)
 }
 
-atenderCliente(bd.pets[0], darBanhoPet);
+adicionarPet("Saturno", "unicórnio", 12, "farolês", 600, "Luiz", false, [] )
+// atenderCliente(bd.pets[0], darBanhoPet);
 
 // adicionarPet({
 //     "nome":"Nabo",
