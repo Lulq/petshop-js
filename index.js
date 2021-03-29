@@ -3,7 +3,7 @@ var moment = require("moment");
 let fs = require('fs');
 let bd = fs.readFileSync('./db-pets.json'); // o sync espera finalizar a tarefa de ler o arquivo antes de avançar
 
-bancoDados = JSON.parse(bd);
+bd = JSON.parse(bd);
 
 
 const dataAgora = () => {
@@ -13,9 +13,9 @@ const dataAgora = () => {
 
 const atualizarBanco = () => {
     //conversão de objeto javascript para JSON
-    let petsAtualizado = JSON.stringify(bancoDados, null, 2); 
+    let petsAtualizado = JSON.stringify(bd, null, 2); 
     //atualização do arquivo db.pets.json
-    fs.writeFileSync('bd-pets.json', petsAtualizado, 'utf-8'); //arquivo, conteúdo e formato
+    fs.writeFileSync('db-pets.json', petsAtualizado, 'utf-8'); //arquivo, conteúdo e formato
 
 }
 
@@ -24,8 +24,11 @@ const listarPets = () => {
    
     for(let pet of bd.pets){
         console.log(`O pet ${pet.nome}, tem ${pet.idade} anos, é um ${pet.tipo} da raça ${pet.raca}`);
+        console.log(pet.vacinado ? "vacinado." : "não vacinado.")
     }
 }
+
+listarPets();
 
 const vacinarPet = pet => {
     // checa se um pet já se encontra vacinado e em caso negativo o vacina.
@@ -56,7 +59,7 @@ const adicionarPet = novoPet =>{
     bd.pets.push(novoPet);
     atualizarBanco();
     console.log(`${novoPet.nome} foi adicionado com sucesso!`)
-
+    
 }
 
 const darBanhoPet = (pet) => {
@@ -79,7 +82,7 @@ const tosarPet = (pet) => {
     atualizarBanco();
     console.log(`${pet.nome} foi tosado no dia ${dataAgora()}!`);
     
-}
+}          
 
 const apararUnhasPet = (pet) => {
     
@@ -98,12 +101,12 @@ const atenderCliente = (pet, servico) => {
 
 
 adicionarPet({
-    "nome":"Gabriel",
-    "tipo":"Cachorrinho feadapta",
+    "nome":"Nabo",
+    "tipo":"Cachorro",
     "idade": 15,
     "raca": "chihuaha",
     "peso": 2,
-    "tutor": "Melyssa", 
+    "tutor": "Nereu", 
     "vacinado": false, 
     "servicos": []
     } );

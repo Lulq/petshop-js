@@ -1,70 +1,82 @@
-{"pets": [
-  {
-    "nome": "Siegfried",
-    "tipo": "cachorro",
-    "idade": 7,
-    "raca": "Doberman",
-    "peso": 30,
-    "tutor": "Luiz",
-    "vacinado": true,
-    "servicos": [
-      "banho",
-      "tosa"
-    ]
-  },
-  {
-    "nome": "Saori",
-    "tipo": "cachorro",
-    "idade": 3,
-    "raca": "Pastor Belga",
-    "peso": 25,
-    "tutor": "Marcos",
-    "vacinado": false,
-    "servicos": [
-      "banho"
-    ]
-  },
-  {
-    "nome": "Iron",
-    "tipo": "cachorro",
-    "idade": 5,
-    "raca": "Pastor Belga",
-    "peso": 30,
-    "tutor": "Joaquim",
-    "vacinado": false,
-    "servicos": [
-      "banho",
-      "aparar unhas"
-    ]
-  },
-  {
-    "nome": "Herbert",
-    "tipo": "cachorro",
-    "idade": 28,
-    "raca": "Miniatura Pinscher, 50% ódio, 50% tremedeira",
-    "peso": 65,
-    "tutor": "João",
-    "vacinado": false,
-    "servicos": []
-  },
-  {
-    "nome": "Diego",
-    "tipo": "Divindade",
-    "idade": 33,
-    "raca": "Cristo",
-    "peso": 555,
-    "tutor": "Deus",
-    "vacinado": true,
-    "servicos": []
-  },
-  {
-    "nome": "Gabriel",
-    "tipo": "Cachorrinho feadapta",
-    "idade": 15,
-    "raca": "chihuaha",
-    "peso": 2,
-    "tutor": "Melyssa",
-    "vacinado": false,
-    "servicos": []
-  }
-] } 
+{
+  "pets": [
+    {
+      "nome": "Siegfried",
+      "tipo": "cachorro",
+      "idade": 7,
+      "raca": "Doberman",
+      "peso": 30,
+      "tutor": "Luiz",
+      "vacinado": true,
+      "servicos": [
+        "banho",
+        "tosa"
+      ]
+    },
+    {
+      "nome": "Saori",
+      "tipo": "cachorro",
+      "idade": 3,
+      "raca": "Pastor Belga",
+      "peso": 25,
+      "tutor": "Marcos",
+      "vacinado": false,
+      "servicos": [
+        "banho"
+      ]
+    },
+    {
+      "nome": "Iron",
+      "tipo": "cachorro",
+      "idade": 5,
+      "raca": "Pastor Belga",
+      "peso": 30,
+      "tutor": "Joaquim",
+      "vacinado": false,
+      "servicos": [
+        "banho",
+        "aparar unhas"
+      ]
+    },
+    {
+      "nome": "Herbert",
+      "tipo": "cachorro",
+      "idade": 28,
+      "raca": "Miniatura Pinscher, 50% ódio, 50% tremedeira",
+      "peso": 65,
+      "tutor": "João",
+      "vacinado": false,
+      "servicos": []
+    },
+    {
+      "nome": "Diego",
+      "tipo": "Divindade",
+      "idade": 33,
+      "raca": "Cristo",
+      "peso": 555,
+      "tutor": "Deus",
+      "vacinado": true,
+      "servicos": []
+    },
+    {
+      "nome": "Gabriel",
+      "tipo": "Cachorrinho feadapta",
+      "idade": 15,
+      "raca": "chihuaha",
+      "peso": 2,
+      "tutor": "Melyssa",
+      "vacinado": false,
+      "servicos": []
+    },
+    {
+      "nome": "Nabo",
+      "tipo": "Cachorro",
+      "idade": 15,
+      "raca": "chihuaha",
+      "peso": 2,
+      "tutor": "Nereu",
+      "vacinado": false,
+      "servicos": []
+    }
+  ]
+}
