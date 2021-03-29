@@ -96,22 +96,27 @@ const apararUnhasPet = (pet) => {
 }
 
 const atenderCliente = (pet, servico) => {
+    console.log(`Bem vindo, ${pet.nome}!`);
     servico(pet);
+    console.log(`Até logo, ${pet.nome}!`)
 }
 
+atenderCliente(bd.pets[0], darBanhoPet);
 
-adicionarPet({
-    "nome":"Nabo",
-    "tipo":"Cachorro",
-    "idade": 15,
-    "raca": "chihuaha",
-    "peso": 2,
-    "tutor": "Nereu", 
-    "vacinado": false, 
-    "servicos": []
-    } );
+// adicionarPet({
+//     "nome":"Nabo",
+//     "tipo":"Cachorro",
+//     "idade": 15,
+//     "raca": "chihuaha",
+//     "peso": 2,
+//     "tutor": "Nereu", 
+//     "vacinado": false, 
+//     "servicos": []
+//     } );
 
-// atenderCliente(pets[0], darBanhoPet);
+
+
+
 // atenderCliente(pets[1], apararUnhasPet);
 
 
