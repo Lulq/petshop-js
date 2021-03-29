@@ -1,6 +1,7 @@
 const nomePetshop = "PETSHOP AVANADE";
 var moment = require("moment");
 let fs = require('fs');
+const { min } = require("moment");
 let bd = fs.readFileSync('./db-pets.json'); // o sync espera finalizar a tarefa de ler o arquivo antes de avançar
 
 bd = JSON.parse(bd);
@@ -20,40 +21,77 @@ const atualizarBanco = () => {
 }
 
 const listarPets = () => {
-    // lista todos os pets com seus nomes, idades, tipos e raças. template string
-   
-    for(let pet of bd.pets){
-        console.log(`O pet ${pet.nome}, tem ${pet.idade} anos, é um ${pet.tipo} da raça ${pet.raca}`);
-        console.log(pet.vacinado ? "vacinado." : "não vacinado.")
+    // lista todos os pets cadastrados.
+       
+    console.log("Estes são os pets cadastrados:")
+    bd.pets.forEach(function(pet) {
+        console.log(pet.nome)
+    });
+        
+    
+};
+// listarPets();
+
+// PetBuscado já retorna o nome 
+// buscado retorna o objeto do pet
+const buscarPet = PetBuscado => {  
+    let buscado = bd.pets.find(function(buscado){
+       return buscado.nome === PetBuscado;
+    });
+    if (buscado) {
+    
+    console.log(`Pet encontrado, aqui estão as informações de ${PetBuscado}:`);
+    console.log(`${PetBuscado} é um ${buscado.tipo} da raça ${buscado.raca} que pertence a(o) ${buscado.tutor} . Hoje enontra-se com ${buscado.idade} anos e pesa ${buscado.peso} quilos.`);
+    console.log(buscado.vacinado ? `${PetBuscado} já está vacinado(a).` : `${PetBuscado} ainda não foi vacinado(a).`)
+    } else {
+        console.log(`${PetBuscado} não encontrado.`)
     }
+    
+};
+
+// buscarPet("Saturno")    
+
+
+const filtrarTipoPet = filtro => {
+    let filtrados = bd.pets.filter(pet => pet.tipo === filtro);
+    
+    console.log(`Aqui estão todos os pets do tipo ${filtro}:`)  
+    filtrados.forEach(filtrado => {
+        console.log(filtrado.nome)
+      
+    });
+    
+    
 }
 
-// listarPets();
+// filtrarTipoPet("cachorro")
+
 
 const vacinarPet = pet => {
     // checa se um pet já se encontra vacinado e em caso negativo o vacina.
     if (!pet.vacinado){
         pet.vacinado = true;
-        console.log(`${pet.nome} foi vacinado com sucesso!`)
+        console.log(`${pet.nome} foi vacinado com sucesso!`);
+        atualizarBanco();
     } else {
-        console.log(`${pet.nome} já estava vacinado.`)
+        console.log(`${pet.nome} já estava vacinado.`);
     }
 
 }
 
-const campanhaVacina = () => { 
-    //cria uma lista através de um filtro, apenas com os que não estão vacinados, a percorre e vacina quem não estiver
+const campanhaVacina = (pets) => { 
     console.log('Campanha de vacina 2020')
     console.log('vacinando...')
 
-    petsVacinados = bd.pets.filter(pets => bd.pets.vacinado === false); //TODO
+    const petsNaoVacinados = pets.filter(pets => pets.vacinado === false);
+    console.log(petsNaoVacinados)
+    pets.map(pet => vacinarPet(pet));
     
-    for(let pet of bd.pets){
-        vacinarPet(pet);
-       
-        }
-        console.log(`Pets vacinados nesta campanha campanha: ${petsVacinados.length}`);
+
+    console.log(`Pets vacinados nesta campanha campanha: ${petsNaoVacinados.length}`);
     } 
+
+campanhaVacina(bd.pets);
 
 const adicionarPet = (nome, tipo, idade, raca, peso, tutor, vacinado, servicos) =>{
 
@@ -114,7 +152,18 @@ const atenderCliente = (pet, servico) => {
     console.log(`Até logo, ${pet.nome}!`)
 }
 
-adicionarPet("Saturno", "unicórnio", 12, "farolês", 600, "Luiz", false, [] )
+
+const clientePremium = pet => {
+    const totalServicos = pet.servicos.map(x => x = 1);
+    const somaServicos = totalServicos.reduce((soma, atual) => soma + atual);
+    console.log((somaServicos < 3) ? "Cliente não elegível para descontos." : "CLIENTE PREMIUM - Você tem direito a desconto.")
+    }
+
+clientePremium(bd.pets[0])
+
+
+
+// adicionarPet("Saturno", "unicórnio", 12, "farolês", 600, "Luiz", false, [] )
 // atenderCliente(bd.pets[0], darBanhoPet);
 
 // adicionarPet({

@@ -22,7 +22,7 @@
       "raca": "Pastor Belga",
       "peso": 25,
       "tutor": "Marcos",
-      "vacinado": false,
+      "vacinado": true,
       "servicos": [
         "banho"
       ]
@@ -34,7 +34,7 @@
       "raca": "Pastor Belga",
       "peso": 30,
       "tutor": "Joaquim",
-      "vacinado": false,
+      "vacinado": true,
       "servicos": [
         "banho",
         "aparar unhas"
@@ -47,7 +47,7 @@
       "raca": "Miniatura Pinscher, 50% ódio, 50% tremedeira",
       "peso": 65,
       "tutor": "João",
-      "vacinado": false,
+      "vacinado": true,
       "servicos": []
     },
     {
@@ -67,7 +67,7 @@
       "raca": "chihuaha",
       "peso": 2,
       "tutor": "Melyssa",
-      "vacinado": false,
+      "vacinado": true,
       "servicos": []
     },
     {
@@ -77,7 +77,7 @@
       "raca": "chihuaha",
       "peso": 2,
       "tutor": "Nereu",
-      "vacinado": false,
+      "vacinado": true,
       "servicos": []
     },
     {
@@ -87,7 +87,7 @@
       "raca": "farolês",
       "peso": 600,
       "tutor": "Luiz",
-      "vacinado": false,
+      "vacinado": true,
       "servicos": []
     }
   ]
