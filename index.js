@@ -33,29 +33,35 @@ const listarPets = () => {
 // listarPets();
 
 // PetBuscado já retorna o nome 
-// buscado retorna o objeto do pet
+// encontrado retorna o objeto do pet
+
+
 const buscarPet = PetBuscado => {  
-    let buscado = bd.pets.find(function(buscado){
-       return buscado.nome === PetBuscado;
+    let encontrado = bd.pets.find(function(pet){
+       return pet.nome === PetBuscado;
     });
-    if (buscado) {
+  
+    // return encontrado ? encontrado : `Nenhum pet encontrado com o nome ${Petbuscado}`
+    
+    if (encontrado) {
     
     console.log(`Pet encontrado, aqui estão as informações de ${PetBuscado}:`);
-    console.log(`${PetBuscado} é um ${buscado.tipo} da raça ${buscado.raca} que pertence a(o) ${buscado.tutor} . Hoje enontra-se com ${buscado.idade} anos e pesa ${buscado.peso} quilos.`);
-    console.log(buscado.vacinado ? `${PetBuscado} já está vacinado(a).` : `${PetBuscado} ainda não foi vacinado(a).`)
+    console.log(`${PetBuscado} é um ${encontrado.tipo} da raça ${encontrado.raca} que pertence a(o) ${encontrado.tutor} . Hoje enontra-se com ${encontrado.idade} anos e pesa ${encontrado.peso} quilos.`);
+    console.log(encontrado.vacinado ? `${PetBuscado} já está vacinado(a).` : `${PetBuscado} ainda não foi vacinado(a).`)
     } else {
         console.log(`${PetBuscado} não encontrado.`)
     }
     
 };
 
-// buscarPet("Saturno")    
+buscarPet("Saturno")    
 
 
-const filtrarTipoPet = filtro => {
-    let filtrados = bd.pets.filter(pet => pet.tipo === filtro);
+const filtrarTipoPet = tipoPet => {
     
-    console.log(`Aqui estão todos os pets do tipo ${filtro}:`)  
+    let filtrados = bd.pets.filter(pet => pet.tipo === tipoPet);
+    
+    console.log(`Aqui estão todos os pets do tipo ${tipoPet}:`)  
     filtrados.forEach(filtrado => {
         console.log(filtrado.nome)
       
@@ -80,18 +86,28 @@ const vacinarPet = pet => {
 }
 
 const campanhaVacina = (pets) => { 
-    console.log('Campanha de vacina 2020')
+    console.log('Campanha de vacina 2021')
     console.log('vacinando...')
 
-    const petsNaoVacinados = pets.filter(pets => pets.vacinado === false);
-    console.log(petsNaoVacinados)
-    pets.map(pet => vacinarPet(pet));
-    
+    let petVacinadosCampanha = 0
 
-    console.log(`Pets vacinados nesta campanha campanha: ${petsNaoVacinados.length}`);
+    bd.pets = bd.pets.map((pet) => {
+        if (!pet.vacinado) {
+            vacinarPet(pet);
+            petVacinadosCampanha++;
+        }
+
+        return pet;
+    })
+    
+    // const petsNaoVacinados = pets.filter(pets => pets.vacinado === false);
+    // console.log(petsNaoVacinados)
+    // pets.map(pet => vacinarPet(pet));
+    
+    console.log(`Pets vacinados nesta campanha campanha: ${petVacinadosCampanha}`);
     } 
 
-campanhaVacina(bd.pets);
+// campanhaVacina(bd.pets);
 
 const adicionarPet = (nome, tipo, idade, raca, peso, tutor, vacinado, servicos) =>{
 
@@ -154,9 +170,11 @@ const atenderCliente = (pet, servico) => {
 
 
 const clientePremium = pet => {
-    const totalServicos = pet.servicos.map(x => x = 1);
-    const somaServicos = totalServicos.reduce((soma, atual) => soma + atual);
-    console.log((somaServicos < 3) ? "Cliente não elegível para descontos." : "CLIENTE PREMIUM - Você tem direito a desconto.")
+
+    let nServicos = pet.servicos.length
+    // const totalServicos = pet.servicos.map(x => x = 1);
+   
+    console.log((nServicos < 3) ? "Cliente não elegível para descontos." : "CLIENTE PREMIUM - Você tem direito a desconto.")
     }
 
 clientePremium(bd.pets[0])
