@@ -24,13 +24,14 @@ const listarPets = () => {
     // lista todos os pets cadastrados.
        
     console.log("Estes são os pets cadastrados:")
-    bd.pets.forEach(function(pet) {
+
+    bd.pets.forEach(pet => {
         console.log(pet.nome)
     });
         
     
 };
-// listarPets();
+listarPets();
 
 // PetBuscado já retorna o nome 
 // encontrado retorna o objeto do pet
