@@ -22,11 +22,23 @@ const atualizarBanco = () => {
 
 const listarPets = () => {
     // lista todos os pets cadastrados.
-       
+    
     console.log("Estes são os pets cadastrados:")
 
     bd.pets.forEach(pet => {
-        console.log(pet.nome)
+        let {nome, tipo, raca, tutor} = pet
+        
+        console.log(`Pet: ${nome}, Tipo: ${tipo}, Raça ${raca}, Tutor: ${tutor}`)
+        
+        
+        
+        pet.servicos.forEach( servicosDoPet => {
+            let {servico, data} = servicosDoPet;
+            console.log(`Serviço: ${servico}, Data/Hora: ${data}`)
+
+        })
+        
+       
     });
         
     
@@ -55,7 +67,7 @@ const buscarPet = PetBuscado => {
     
 };
 
-buscarPet("Saturno")    
+// buscarPet("Saturno")    
 
 
 const filtrarTipoPet = tipoPet => {
@@ -110,7 +122,7 @@ const campanhaVacina = (pets) => {
 
 // campanhaVacina(bd.pets);
 
-const adicionarPet = (nome, tipo, idade, raca, peso, tutor, vacinado, servicos) =>{
+const adicionarPet = (nome, tipo, idade, raca, peso, tutor, contato, vacinado, servicos) =>{
 
         novoPet = {
             nome: nome,
@@ -119,6 +131,7 @@ const adicionarPet = (nome, tipo, idade, raca, peso, tutor, vacinado, servicos) 
             raca: raca,
             peso: peso,
             tutor: tutor,
+            contato: contato,
             vacinado: vacinado,
             servicos: servicos
         }
@@ -172,13 +185,42 @@ const atenderCliente = (pet, servico) => {
 
 const clientePremium = pet => {
 
+    let {nome} = pet
+
     let nServicos = pet.servicos.length
     // const totalServicos = pet.servicos.map(x => x = 1);
    
-    console.log((nServicos < 3) ? "Cliente não elegível para descontos." : "CLIENTE PREMIUM - Você tem direito a desconto.")
+    console.log((nServicos < 3) ? `${nome}! Infelizmente você não é elegível para descontos.` : `CLIENTE PREMIUM - ${nome} você tem direito a desconto.`)
     }
 
-clientePremium(bd.pets[0])
+// clientePremium(bd.pets[0])
+
+
+const contatoTutor = pet => {
+    let {nome, tutor, contato} = pet;
+
+    return `Tutor: ${tutor}
+            Contato: ${contato}   // adicionar "contato" no bd e na função de inserção
+            Pet: ${nome}`;
+    
+}
+
+// console.log(contatoTutor(bd.pets[0]))
+
+const filtrarTutor = nomeTutor => {
+    let petsTutor = bd.pets.filter(pet =>{
+        return pet.tutor == nomeTutor;
+    });
+    console.log(`Pets do tutor ${nomeTutor}:`)
+    petsTutor.forEach(pet => {
+        console.log(`${pet.nome} - ${pet.tipo}`)
+    })
+}
+
+// filtrarTutor('Luiz');
+
+
+
 
 
 
